@@ -1358,6 +1358,13 @@ func (woc *wfOperationCtx) assessNodeStatus(pod *apiv1.Pod, old *wfv1.NodeStatus
 		new.ResourcesDuration = resource.DurationForPod(pod)
 	}
 
+	if new.PodMetadata == nil {
+		new.PodMetadata = &wfv1.Metadata{}
+	}
+	// new.Metadata.Annotations = make(map[string]string)
+	new.PodMetadata.Annotations = pod.ObjectMeta.Annotations
+	new.PodMetadata.Labels = pod.ObjectMeta.Labels
+
 	if !reflect.DeepEqual(old, new) {
 		woc.log.WithField("nodeID", old.ID).
 			WithField("old.phase", old.Phase).

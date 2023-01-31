@@ -2135,6 +2135,9 @@ type NodeStatus struct {
 
 	// SynchronizationStatus is the synchronization status of the node
 	SynchronizationStatus *NodeSynchronizationStatus `json:"synchronizationStatus,omitempty" protobuf:"bytes,25,opt,name=synchronizationStatus"`
+
+	// Metdata defines additional metadata, i.e. annotations and labels, if node is pods's metadata,
+	PodMetadata *Metadata `json:"podMetadata,omitempty" protobuf:"bytes,27,opt,name=podMetadata"`
 }
 
 func (n *NodeStatus) GetName() string {

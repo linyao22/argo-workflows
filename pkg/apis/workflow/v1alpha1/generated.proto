@@ -1048,6 +1048,9 @@ message NodeStatus {
 
   // SynchronizationStatus is the synchronization status of the node
   optional NodeSynchronizationStatus synchronizationStatus = 25;
+
+  // Metdata defines additional metadata, i.e. annotations and labels, if node is pods's metadata,
+  optional Metadata podMetadata = 27;
 }
 
 // NodeSynchronizationStatus stores the status of a node
