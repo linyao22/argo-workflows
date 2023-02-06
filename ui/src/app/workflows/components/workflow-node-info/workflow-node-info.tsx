@@ -225,7 +225,9 @@ const WorkflowNodeSummary = (props: Props) => {
                         object={{
                             metadata: {
                                 namespace: props.workflow.metadata.namespace,
-                                name: podName
+                                name: podName,
+                                labels: props.node.podMetadata && props.node.podMetadata.labels,
+                                annotations: props.node.podMetadata && props.node.podMetadata.annotations,
                             },
                             workflow: props.workflow,
                             status: {
